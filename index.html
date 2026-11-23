@@ -1,33 +1,58 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <title></title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       width: 100%;
       height: 100%;
       margin: 0;
+      padding: 0;
       background: #000;
       overflow: hidden;
     }
+
     body {
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 100dvh;
+      width: 100vw;
     }
+
     img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
+      user-select: none;
+      -webkit-user-drag: none;
+      cursor: default;
     }
   </style>
 </head>
+
 <body>
-  <img src="image-metal-reggae.png" alt="">
+  <img id="visual" src="image-metal-reggae.png" alt="">
+
+  <script>
+    document.getElementById("visual").addEventListener("click", () => {
+      if (!document.fullscreenElement &&
+          document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+    });
+  </script>
 </body>
 </html>
